@@ -1,10 +1,11 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\IndexController;
+use App\Http\Controllers\GuruController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,17 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+Route::prefix('/guru')->group(function(){
+    Route::get('/index', [GuruController::class, 'index']);
+    Route::get('/create', [GuruController::class, 'create']);
+    Route::post('/store', [GuruController::class, 'store']);
+    Route::get('/edit/{guru}', [GuruController::class, 'edit']);
+    Route::post('/update/{guru}', [GuruController::class, 'update']);
+    Route::get('/destroy/{guru}', [GuruController::class, 'destroy']);
+});
+
 
 Route::get('/home', [IndexController::class, 'home']);
 

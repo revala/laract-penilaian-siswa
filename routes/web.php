@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\GuruController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,15 @@ Route::prefix('/guru')->group(function(){
     Route::get('/edit/{guru}', [GuruController::class, 'edit']);
     Route::post('/update/{guru}', [GuruController::class, 'update']);
     Route::get('/destroy/{guru}', [GuruController::class, 'destroy']);
+});
+
+Route::prefix('/jurusan')->group(function(){
+    Route::get('/index', [JurusanController::class, 'index']);
+    Route::get('/create', [JurusanController::class, 'create']);
+    Route::post('/store', [JurusanController::class, 'store']);
+    Route::get('/edit/{jurusan}', [JurusanController::class, 'edit']);
+    Route::post('/update/{jurusan}', [JurusanController::class, 'update']);
+    Route::get('/destroy/{jurusan}', [JurusanController::class, 'destroy']);
 });
 
 

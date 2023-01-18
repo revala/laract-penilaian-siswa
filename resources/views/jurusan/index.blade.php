@@ -11,16 +11,16 @@
                 <th>NAMA JURUSAN</th>
                 <th>ACTION</th>
             </tr>
-            @foreach($jurusan as $g)
+            @foreach($jurusan as $j)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $g->nama_jurusan }}</td>
+                <td>{{ $j->nama_jurusan }}</td>
                 <td>
-                    <a href="/jurusan/edit/{{ $g->id }}" class="button-warning">
+                    <a href="/jurusan/edit/{{ $j->id }}" class="button-warning">
                         EDIT
                     </a>
 
-                    <a href="/jurusan/destroy/{{ $g->id }}" class="button-danger" onclick="return confirm('Yakin hapus?')">
+                    <a href="/jurusan/destroy/{{ $j->id }}" class="button-danger" onclick="return confirm('Yakin hapus?')">
                         HAPUS
                     </a>
                 </td>

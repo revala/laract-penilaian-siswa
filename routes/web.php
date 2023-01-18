@@ -6,6 +6,7 @@ use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\GuruController;
 use App\Http\Controllers\MapelController;
 use App\Http\Controllers\KelasController;
+use App\Http\Controllers\SiswaController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -75,6 +76,15 @@ Route::prefix('/kelas')->group(function(){
     Route::get('/edit/{kelas}', [KelasController::class, 'edit']);
     Route::post('/update/{kelas}', [KelasController::class, 'update']);
     Route::get('/destroy/{kelas}', [KelasController::class, 'destroy']);
+});
+
+Route::prefix('/siswa')->group(function(){
+    Route::get('/index', [SiswaController::class, 'index']);
+    Route::get('/create', [SiswaController::class, 'create']);
+    Route::post('/store', [SiswaController::class, 'store']);
+    Route::get('/edit/{siswa}', [SiswaController::class, 'edit']);
+    Route::post('/update/{siswa}', [SiswaController::class, 'update']);
+    Route::get('/destroy/{siswa}', [SiswaController::class, 'destroy']);
 });
 
 Route::get('/home', [IndexController::class, 'home']);

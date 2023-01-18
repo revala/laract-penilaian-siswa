@@ -1,7 +1,7 @@
 @extends('main.layout')
 @section('content')
 <center>
-    <h2>EDIT DATA MATA PELAJARAN</h2>
+    <h2>EDIT DATA KELAS</h2>
     <form action="/kelas/update/{{ $kelas->id }}" method="POST">
     @csrf
     <table width="50%">

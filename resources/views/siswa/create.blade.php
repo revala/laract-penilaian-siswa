@@ -34,6 +34,7 @@
                 <td class="bar">KELAS</td>
                 <td class="bar">
                     <select name="kelas_id">
+                        <option value="" disabled selected hidden>PILIH KELAS</option>
                     @foreach($kelas as $kel)
                     <option value="{{ $kel->id }}">{{ $kel->nama_kelas }}</option>
                 @endforeach

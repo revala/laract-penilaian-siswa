@@ -14,7 +14,7 @@
             <td class="bar">JURUSAN</td>
             <td class="bar">
                 <select name="jurusan_id" id="">
-                    <option value=""></option>
+                    <option value="" disabled>PILIH JURUSAN</option>
                 @foreach($jurusan as $jur)
                 @if($kelas->jurusan_id == $jur->id)
                 <option value="{{ $jur->id }}" selected>{{ $jur->nama_jurusan }}</option>

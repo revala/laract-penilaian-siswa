@@ -9,6 +9,7 @@
                 <td class="bar">GURU-MAPEL-KELAS</td>
                 <td class="bar">
                     <select name="mengajar_id">
+                        <option value="" disabled selected hidden>PILIH GURU-MAPEL-KELAS</option>
                     @foreach($mengajar as $men)
                     <option value="{{ $men->id }}">{{ $men->guru->nama_guru }} {{ $men->mapel->nama_mapel }} {{ $men->kelas->nama_kelas }}
                     </option>
@@ -21,6 +22,7 @@
                 <td class="bar">NAMA SISWA</td>
                 <td class="bar">
                     <select name="siswa_id">
+                        <option value="" disabled selected hidden>PILIH NAMA SISWA</option>
                     @foreach($siswa as $sis)
                     <option value="{{ $sis->id }}">{{ $sis->nama_siswa }}</option>
                 @endforeach

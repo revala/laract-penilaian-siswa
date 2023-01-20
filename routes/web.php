@@ -24,24 +24,19 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+// Route::get('/', function () {
+//     return Inertia::render('Login');
+// });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 
 Route::prefix('/guru')->group(function(){
@@ -107,13 +102,20 @@ Route::prefix('/nilai')->group(function(){
     Route::get('/destroy/{nilai}', [NilaiController::class, 'destroy']);
 });
 
+Route::get('/', [IndexController::class,'index']);
+Route::post('/login/admin', [IndexController::class, 'loginAdmin']);
+Route::post('/login/siswa', [IndexController::class, 'loginSiswa']);
+Route::post('/login/guru', [IndexController::class, 'loginGuru']);
+Route::get('/home', [IndexController::class], 'home');
+Route::get('/logout', [IndexController::class], 'logout');
+
 Route::get('/home', [IndexController::class, 'home']);
 
-Route::prefix('login', function(){
-    Route::post('/admin', [IndexController::class, 'loginAdmin']);
-    Route::post('/siswa', [IndexController::class, 'loginSiswa']);
-    Route::post('/guru', [IndexController::class, 'loginGuru']);
-});
+// Route::prefix('login')->group(function(){
+//     Route::post('/admin', [IndexController::class, 'loginAdmin']);
+//     Route::post('/siswa', [IndexController::class, 'loginSiswa']);
+//     Route::post('/guru', [IndexController::class, 'loginGuru']);
+// });
 
 Route::get('/logout', [IndexController::class, 'logout']);
 

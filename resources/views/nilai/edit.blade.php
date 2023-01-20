@@ -23,7 +23,7 @@
                 <td class="bar">
                     <select name="siswa_id">
                     @foreach($siswa as $sis)
-                    <option value="{{ $sis->id }}" @if($men->id == $nilai->siswa_id) selected @endif>
+                    <option value="{{ $sis->id }}" @if($sis->id == $nilai->siswa_id) selected @endif>
                         {{ $sis->nama_siswa }}
                     </option>
                 @endforeach
